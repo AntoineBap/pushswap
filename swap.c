@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaptist <abaptist@student.42.fr>          #+#  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-10 11:45:53 by abaptist          #+#    #+#             */
-/*   Updated: 2026-06-10 11:45:53 by abaptist         ###   ########.fr       */
+/*   Created: 2026/06/10 11:45:53 by abaptist          #+#    #+#             */
+/*   Updated: 2026/06/12 09:54:53 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ void	swap(t_ps_list **stack)
 void	sa(t_ps_list **stack_a)
 {
 	swap(stack_a);
+	printf("sa\n");
 }
 
 void	sb(t_ps_list **stack_b)
 {
 	swap(stack_b);
+	printf("sb\n");
 }

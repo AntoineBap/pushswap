@@ -1,4 +1,3 @@
-
 #include "push_swap.h"
 
 int	get_max(t_ps_list *stack)
@@ -36,23 +35,54 @@ int	rotation_cost(int index, int size)
 	return (size - index);
 }
 
+static int	index_of_max(t_ps_list *stack_a)
+{
+	t_ps_list	*current;
+	int			index;
+	int			best_index;
+	int			best_val;
+
+	current = stack_a;
+	index = 0;
+	best_index = 0;
+	best_val = INT_MIN;
+	while (current)
+	{
+		if (current->content > best_val)
+		{
+			best_val = current->content;
+			best_index = index;
+		}
+		current = current->next;
+		index++;
+	}
+	return (best_index);
+}
+
 int	find_target_index(t_ps_list *stack_a, int val)
 {
 	t_ps_list	*current;
 	int			index;
+	int			best_index;
+	int			best_val;
 
-	if (val > get_max(stack_a))
-		return (0);
 	current = stack_a;
 	index = 0;
+	best_index = -1;
+	best_val = INT_MAX;
 	while (current)
 	{
-		if (current->content > val)
-			return (index);
+		if (current->content > val && current->content < best_val)
+		{
+			best_val = current->content;
+			best_index = index;
+		}
 		current = current->next;
 		index++;
 	}
-	return (0);
+	if (best_index == -1)
+		return (index_of_max(stack_a) + 1);
+	return (best_index);
 }
 
 int	compute_cost(t_ps_list *stack_a, int val, int b_index, int size_b)

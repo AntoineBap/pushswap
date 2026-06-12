@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaptist <abaptist@student.42.fr>          #+#  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-10 11:47:09 by abaptist          #+#    #+#             */
-/*   Updated: 2026-06-10 11:47:09 by abaptist         ###   ########.fr       */
+/*   Created: 2026/06/10 11:47:09 by abaptist          #+#    #+#             */
+/*   Updated: 2026/06/12 09:54:42 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ void	rotate(t_ps_list **stack)
 void	ra(t_ps_list **stack_a)
 {
 	rotate(stack_a);
+	printf("ra\n");
 }
 
 void	rb(t_ps_list **stack_b)
 {
 	rotate(stack_b);
+	printf("rb\n");
 }
 
 void	rr(t_ps_list **stack_a, t_ps_list **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
+	printf("rr\n");
 }

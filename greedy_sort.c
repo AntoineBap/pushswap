@@ -43,15 +43,35 @@ static void	put_min_on_top(t_ps_list **stack_a)
 	}
 }
 
+static void	sort_three(t_ps_list **stack_a)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = (*stack_a)->content;
+	b = (*stack_a)->next->content;
+	c = (*stack_a)->next->next->content;
+	if (a > b && b < c && a < c)
+		sa(stack_a);
+	else if (a > b && b > c)
+	{ sa(stack_a); rra(stack_a); }
+	else if (a > b && b < c && a > c)
+		ra(stack_a);
+	else if (a < b && b > c && a < c)
+	{ sa(stack_a); ra(stack_a); }
+	else if (a < b && b > c && a > c)
+		rra(stack_a);
+}
+
 void	greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b)
 {
 	int	best_b_index;
 	int	best_val;
 
-	while (ft_lstsize_ps(*stack_a) > 2)
+	while (ft_lstsize_ps(*stack_a) > 3)
 		pb(stack_b, stack_a);
-	if ((*stack_a)->content > (*stack_a)->next->content)
-		sa(stack_a);
+	sort_three(stack_a);
 	while (*stack_b)
 	{
 		best_b_index = 0;
