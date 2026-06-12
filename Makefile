@@ -4,7 +4,7 @@ CC = cc
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = push_swap.c push_swap_init.c push.c swap.c rotate.c reverse_rotate.c compute_disorder.c
+SRCS = push_swap.c push_swap_init.c push.c swap.c rotate.c reverse_rotate.c compute_disorder.c greedy_algo.c greedy_insert.c greedy_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -12,14 +12,10 @@ libft:
 	$(MAKE) -C libft/
 	$(MAKE) clean -C libft/
 
-printf:
-	$(MAKE) -C printf/
-	$(MAKE) clean -C printf/
-
-all: libft printf $(NAME)
+all: libft $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS) -L libft/ -lft -I libft/ -L printf/ -lftprintf
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS) -L libft/ -lft -I libft/ 
 
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
@@ -30,8 +26,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) fclean -C libft/
-	$(MAKE) fclean -C printf/
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re libft printf
+.PHONY: all bonus clean fclean re libft

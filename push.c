@@ -3,27 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaptist <abaptist@student.42.fr>          #+#  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-10 11:49:14 by abaptist          #+#    #+#             */
-/*   Updated: 2026-06-10 11:49:14 by abaptist         ###   ########.fr       */
+/*   Created: 2026/06/10 11:49:14 by abaptist          #+#    #+#             */
+/*   Updated: 2026/06/12 09:35:24 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_ps_list **receiver_stack, t_ps_list *giver_stack)
+void	pa(t_ps_list **stack_a, t_ps_list **stack_b)
 {
-	giver_stack->next = *receiver_stack;
-	*receiver_stack = giver_stack;
+    t_ps_list *node;
+
+    if (!*stack_b)
+        return ;
+    node = *stack_b;
+    *stack_b = (*stack_b)->next;
+    node->next = *stack_a;
+    *stack_a = node;
+    printf("pa\n");
 }
 
-void	pa(t_ps_list *stack_a, t_ps_list *stack_b)
+void	pb(t_ps_list **stack_b, t_ps_list **stack_a)
 {
-	push(&stack_a, stack_b);
-}
+    t_ps_list *node;
 
-void	pb(t_ps_list *stack_b, t_ps_list *stack_a)
-{
-	push(&stack_b, stack_a);
+    if (!*stack_a)
+        return ;
+    node = *stack_a;
+    *stack_a = (*stack_a)->next;
+    node->next = *stack_b;
+    *stack_b = node;
+    printf("pb\n");
 }

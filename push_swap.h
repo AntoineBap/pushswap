@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 08:55:21 by abaptist          #+#    #+#             */
-/*   Updated: 2026/06/10 14:51:11 by schoisi          ###   ########.fr       */
+/*   Updated: 2026/06/12 09:28:37 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct ps_list
 {
@@ -30,8 +31,8 @@ t_ps_list	*fill_stack_a(char *argv, int argc);
 void		ft_lstadd_back_ps(t_ps_list **lst, t_ps_list *new);
 void		sa(t_ps_list **stack_a);
 void		sb(t_ps_list **stack_b);
-void		pa(t_ps_list *stack_a, t_ps_list *stack_b);
-void		pb(t_ps_list *stack_b, t_ps_list *stack_a);
+void		pa(t_ps_list **stack_a, t_ps_list **stack_b);
+void		pb(t_ps_list **stack_b, t_ps_list **stack_a);
 void		ra(t_ps_list **stack_a);
 void		rb(t_ps_list **stack_b);
 void		rr(t_ps_list **stack_a, t_ps_list **stack_b);
@@ -40,5 +41,15 @@ void		rrb(t_ps_list **stack_b);
 void		rrr(t_ps_list **stack_a, t_ps_list **stack_b);
 int			compute_disorder(t_ps_list **stack_a);
 int			ft_lstsize_ps(t_ps_list *lst);
+int			get_max(t_ps_list *stack);
+int			get_min(t_ps_list *stack);
+int			rotation_cost(int index, int size);
+int			find_target_index(t_ps_list *stack_a, int val);
+int			compute_cost(t_ps_list *stack_a, int val, int b_index, int size_b);
+void		find_cheapest(t_ps_list *stack_a, t_ps_list *stack_b,
+				int *best_b_index, int *best_val);
+void		bring_to_top_b(t_ps_list **stack_b, int best_b_index);
+void		bring_to_target_a(t_ps_list **stack_a, int best_val);
+void		greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b);
 
 #endif

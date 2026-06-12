@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:24:16 by abaptist          #+#    #+#             */
-/*   Updated: 2026/06/10 15:04:36 by schoisi          ###   ########.fr       */
+/*   Updated: 2026/06/12 09:09:02 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ int	compute_disorder(t_ps_list **stack_a)
 		}
 		i += 1;
 	}
-	ft_printf("\nmistakes : %d\ntotal pairs : %d\n", mistakes, total_pairs);
+	printf("\nmistakes : %d\ntotal pairs : %d\n", mistakes, total_pairs);
 	return (mistakes / total_pairs);
 }
