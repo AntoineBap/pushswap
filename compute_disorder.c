@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:24:16 by abaptist          #+#    #+#             */
-/*   Updated: 2026/06/12 09:09:02 by antoine          ###   ########.fr       */
+/*   Updated: 2026/06/16 14:14:21 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ int	compute_disorder(t_ps_list **stack_a)
 		i += 1;
 	}
 	printf("\nmistakes : %d\ntotal pairs : %d\n", mistakes, total_pairs);
-	return (mistakes / total_pairs);
+	return (total_pairs == 0 ? 0 : mistakes / total_pairs);
 }

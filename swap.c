@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 11:45:53 by abaptist          #+#    #+#             */
-/*   Updated: 2026/06/12 09:54:53 by antoine          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	swap(t_ps_list **stack)
@@ -28,11 +16,13 @@ void	swap(t_ps_list **stack)
 void	sa(t_ps_list **stack_a)
 {
 	swap(stack_a);
+	op_count_inc();
 	printf("sa\n");
 }
 
 void	sb(t_ps_list **stack_b)
 {
 	swap(stack_b);
+	op_count_inc();
 	printf("sb\n");
 }

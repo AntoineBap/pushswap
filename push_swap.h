@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 08:55:21 by abaptist          #+#    #+#             */
-/*   Updated: 2026/06/12 09:28:37 by antoine          ###   ########.fr       */
+/*   Updated: 2026/06/12 10:06:21 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void		find_cheapest(t_ps_list *stack_a, t_ps_list *stack_b,
 void		bring_to_top_b(t_ps_list **stack_b, int best_b_index);
 void		bring_to_target_a(t_ps_list **stack_a, int best_val);
 void		greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b);
+void    	op_count_inc(void);
+int     	get_op_count(void);
 
 #endif

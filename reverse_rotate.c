@@ -1,23 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 11:43:54 by abaptist          #+#    #+#             */
-/*   Updated: 2026/06/12 09:54:23 by antoine          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
-
 
 void	reverse_rotate(t_ps_list **stack)
 {
 	t_ps_list	*maillon;
 	t_ps_list	*last_node;
- 
+
 	if (!*stack || !(*stack)->next)
 		return ;
 	maillon = *stack;
@@ -32,18 +19,21 @@ void	reverse_rotate(t_ps_list **stack)
 void	rra(t_ps_list **stack_a)
 {
 	reverse_rotate(stack_a);
+	op_count_inc();
 	printf("rra\n");
 }
 
 void	rrb(t_ps_list **stack_b)
 {
 	reverse_rotate(stack_b);
+	op_count_inc();
 	printf("rrb\n");
 }
 
 void	rrr(t_ps_list **stack_a, t_ps_list **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	op_count_inc();
 	printf("rrr\n");
 }

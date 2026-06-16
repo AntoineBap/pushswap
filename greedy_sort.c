@@ -71,7 +71,10 @@ void	greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b)
 
 	while (ft_lstsize_ps(*stack_a) > 3)
 		pb(stack_b, stack_a);
-	sort_three(stack_a);
+	if (ft_lstsize_ps(*stack_a) == 3)
+		sort_three(stack_a);
+	else if (ft_lstsize_ps(*stack_a) == 2)
+		sa(stack_a);
 	while (*stack_b)
 	{
 		best_b_index = 0;
@@ -81,5 +84,7 @@ void	greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b)
 		bring_to_target_a(stack_a, best_val);
 		pa(stack_a, stack_b);
 	}
+	if (!*stack_a)   // add this guard
+		return ;
 	put_min_on_top(stack_a);
 }
