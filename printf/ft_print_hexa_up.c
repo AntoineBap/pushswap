@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hexa_up.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 20:26:44 by schoisi           #+#    #+#             */
-/*   Updated: 2026/05/10 05:07:47 by schoisi          ###   ########.fr       */
+/*   Updated: 2026/07/01 08:01:35 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_print_hexa_up(unsigned int nb)
 	{
 		buffer[--i] = digits[nb % 16];
 		nb = nb / 16;
-		count++;
+		(*count)++;
 	}
 	write(1, &buffer[i], count);
 	return (count);

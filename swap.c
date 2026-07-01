@@ -13,16 +13,16 @@ void	swap(t_ps_list **stack)
 	*stack = maillon;
 }
 
-void	sa(t_ps_list **stack_a)
+void	sa(t_ps_list **stack_a, int *count)
 {
 	swap(stack_a);
-	op_count_inc();
+	(*count)++;
 	printf("sa\n");
 }
 
-void	sb(t_ps_list **stack_b)
+void	sb(t_ps_list **stack_b, int *count)
 {
 	swap(stack_b);
-	op_count_inc();
+	(*count)++;
 	printf("sb\n");
 }

@@ -27,7 +27,7 @@ void	find_cheapest(t_ps_list *stack_a, t_ps_list *stack_b,
 	}
 }
 
-void	bring_to_top_b(t_ps_list **stack_b, int best_b_index)
+void	bring_to_top_b(t_ps_list **stack_b, int best_b_index, int *count)
 {
 	int	size_b;
 	int	i;
@@ -37,17 +37,17 @@ void	bring_to_top_b(t_ps_list **stack_b, int best_b_index)
 	{
 		i = 0;
 		while (i++ < best_b_index)
-			rb(stack_b);
+			rb(stack_b, count);
 	}
 	else
 	{
 		i = size_b - best_b_index;
 		while (i-- > 0)
-			rrb(stack_b);
+			rrb(stack_b, count);
 	}
 }
 
-void	bring_to_target_a(t_ps_list **stack_a, int best_val)
+void	bring_to_target_a(t_ps_list **stack_a, int best_val, int *count)
 {
 	int	target;
 	int	size_a;
@@ -59,12 +59,12 @@ void	bring_to_target_a(t_ps_list **stack_a, int best_val)
 	{
 		i = 0;
 		while (i++ < target)
-			ra(stack_a);
+			ra(stack_a, count);
 	}
 	else
 	{
 		i = size_a - target;
 		while (i-- > 0)
-			rra(stack_a);
+			rra(stack_a, count);
 	}
 }

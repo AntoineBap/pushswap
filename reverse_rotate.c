@@ -16,24 +16,24 @@ void	reverse_rotate(t_ps_list **stack)
 	*stack = last_node;
 }
 
-void	rra(t_ps_list **stack_a)
+void	rra(t_ps_list **stack_a, int *count)
 {
 	reverse_rotate(stack_a);
-	op_count_inc();
+	(*count)++;
 	printf("rra\n");
 }
 
-void	rrb(t_ps_list **stack_b)
+void	rrb(t_ps_list **stack_b, int *count)
 {
 	reverse_rotate(stack_b);
-	op_count_inc();
+	(*count)++;
 	printf("rrb\n");
 }
 
-void	rrr(t_ps_list **stack_a, t_ps_list **stack_b)
+void	rrr(t_ps_list **stack_a, t_ps_list **stack_b, int *count)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	op_count_inc();
+	(*count)++;
 	printf("rrr\n");
 }
