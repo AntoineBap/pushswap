@@ -48,7 +48,7 @@ t_ps_list	*fill_stack_a(char *argv, int argc)
 	t_ps_list	*stack_a;
 	int			len_list;
 
-	if (argc != 2)
+	if (argc != 2 && argc != 3)
 		return (NULL);
 	else
 	{
@@ -66,5 +66,3 @@ t_ps_list	*fill_stack_a(char *argv, int argc)
 		return (stack_a);
 	}
 }
-
-

@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-int ft_printf_strwrt(char *str)
+int	ft_printf_strwrt(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!str || str[i] == '\0')
-        return (i);
-    while (str[i])
-        i++;
-    if (write(1, str, i) == -1)
-        return (-1);
-    return (i);
+	i = 0;
+	if (!str || str[i] == '\0')
+		return (i);
+	while (str[i])
+		i++;
+	if (write(1, str, i) == -1)
+		return (-1);
+	return (i);
 }

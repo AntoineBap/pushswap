@@ -35,4 +35,3 @@ int	ft_printf_findtype(const char format, va_list *args)
 		score = ft_print_void(va_arg(*args, void *));
 	return (score);
 }
-

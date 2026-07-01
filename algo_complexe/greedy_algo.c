@@ -1,32 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   greedy_algo.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abaptist <abaptist@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026-06-17 09:03:01 by abaptist          #+#    #+#             */
+/*   Updated: 2026-06-17 09:03:01 by abaptist         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	get_max(t_ps_list *stack)
-{
-	int	max;
-
-	max = stack->content;
-	while (stack)
-	{
-		if (stack->content > max)
-			max = stack->content;
-		stack = stack->next;
-	}
-	return (max);
-}
-
-int	get_min(t_ps_list *stack)
-{
-	int	min;
-
-	min = stack->content;
-	while (stack)
-	{
-		if (stack->content < min)
-			min = stack->content;
-		stack = stack->next;
-	}
-	return (min);
-}
+#include "../push_swap.h"
 
 int	rotation_cost(int index, int size)
 {

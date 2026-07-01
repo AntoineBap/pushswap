@@ -21,7 +21,7 @@ This produces the `push_swap` binary. Available Makefile rules: `all`, `clean`, 
 ### Execution
 
 ```bash
-./push_swap [--simple | --medium | --complex | --adaptive] <list of integers>
+./ps [--simple | --medium | --complex | --adaptive] <list of integers>
 ```
 
 **Strategy flags (optional):**

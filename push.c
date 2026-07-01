@@ -1,18 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abaptist <abaptist@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026-06-10 11:49:14 by abaptist          #+#    #+#             */
+/*   Updated: 2026-06-10 11:49:14 by abaptist         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int	g_op_count = 0;
 
-void	op_count_inc(void)
-{
-	g_op_count++;
-}
-
-int	get_op_count(void)
-{
-	return (g_op_count);
-}
-
-void	pa(t_ps_list **stack_a, t_ps_list **stack_b)
+void	pa(t_ps_list **stack_a, t_ps_list **stack_b, int *count)
 {
 	t_ps_list	*node;
 
@@ -22,11 +23,11 @@ void	pa(t_ps_list **stack_a, t_ps_list **stack_b)
 	*stack_b = (*stack_b)->next;
 	node->next = *stack_a;
 	*stack_a = node;
-	op_count_inc();
+	(*count)++;
 	printf("pa\n");
 }
 
-void	pb(t_ps_list **stack_b, t_ps_list **stack_a)
+void	pb(t_ps_list **stack_b, t_ps_list **stack_a, int *count)
 {
 	t_ps_list	*node;
 
@@ -36,6 +37,6 @@ void	pb(t_ps_list **stack_b, t_ps_list **stack_a)
 	*stack_a = (*stack_a)->next;
 	node->next = *stack_b;
 	*stack_b = node;
-	op_count_inc();
+	(*count)++;
 	printf("pb\n");
 }

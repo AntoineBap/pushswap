@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abaptist <abaptist@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026-06-10 11:45:53 by abaptist          #+#    #+#             */
+/*   Updated: 2026-06-10 11:45:53 by abaptist         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap(t_ps_list **stack)
@@ -13,16 +25,17 @@ void	swap(t_ps_list **stack)
 	*stack = maillon;
 }
 
-void	sa(t_ps_list **stack_a)
+void	sa(t_ps_list **stack_a, int *count)
 {
 	swap(stack_a);
-	op_count_inc();
+	(*count)++;
 	printf("sa\n");
 }
 
-void	sb(t_ps_list **stack_b)
+void	sb(t_ps_list **stack_b, int *count)
 {
 	swap(stack_b);
-	op_count_inc();
+	(*count)++;
 	printf("sb\n");
 }
+
