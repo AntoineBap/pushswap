@@ -6,7 +6,7 @@
 /*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 08:55:21 by abaptist          #+#    #+#             */
-/*   Updated: 2026/06/11 16:47:12 by schoisi          ###   ########.fr       */
+/*   Updated: 2026/07/01 07:59:15 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ typedef struct ps_list
 	struct ps_list	*next;
 }					t_ps_list;
 
+typedef struct ps_ctx_list
+{
+	t_ps_list	*stack_a;
+	t_ps_list	*stack_b;
+	int			count;
+}				ctx_list;
+
 t_ps_list	*ft_lstnew_ps(int content);
 t_ps_list	*fill_stack_a(char *argv, int argc);
 void		ft_lstadd_back_ps(t_ps_list **lst, t_ps_list *new);
@@ -39,7 +46,7 @@ void		rr(t_ps_list **stack_a, t_ps_list **stack_b, int *count);
 void		rra(t_ps_list **stack_a, int *count);
 void		rrb(t_ps_list **stack_b, int *count);
 void		rrr(t_ps_list **stack_a, t_ps_list **stack_b, int *count);
-float		compute_disorder(t_ps_list **stack_a);
+int			compute_disorder(t_ps_list **stack_a);
 int			ft_lstsize_ps(t_ps_list *lst);
 int			get_max(t_ps_list *stack);
 int			get_min(t_ps_list *stack);
@@ -51,12 +58,5 @@ void		find_cheapest(t_ps_list *stack_a, t_ps_list *stack_b,
 void		bring_to_top_b(t_ps_list **stack_b, int best_b_index, int *count);
 void		bring_to_target_a(t_ps_list **stack_a, int best_val, int *count);
 void		greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b, int *count);
-void		exit_prog(int status);
-int			is_number(char *str, int *i);
-int			check_format(char *str);
-void		adaptive_algo(t_ps_list **stack_a, t_ps_list **stack_b, int *count);
-void		algo_simple_ps(t_ps_list **stack_a,
-				t_ps_list **stack_b, int *count);
-
 
 #endif
