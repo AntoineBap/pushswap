@@ -26,5 +26,6 @@ int		ft_printf_putchar_unsigned(unsigned int nb);
 int		ft_print_hexa_up(unsigned int nb);
 int		ft_print_hexa_low(unsigned int nb);
 int		ft_print_void(void *args);
+int		ft_print_float(float nb, int precision);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 11:55:06 by abaptist          #+#    #+#             */
-/*   Updated: 2026/07/01 04:39:21 by antoine          ###   ########.fr       */
+/*   Updated: 2026/07/02 10:10:53 by schoisi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,28 @@ void	ft_lstadd_back_ps(t_ps_list **lst, t_ps_list *new)
 	maillon->next = new;
 }
 
-t_ps_list	*fill_stack_a(char *argv, int argc)
+t_ps_list *fill_stack_a(char **argv, int argc)
 {
-	char		**split_result;
-	int			i;
-	t_ps_list	*stack_a;
-	int			len_list;
+    t_ps_list *(stack_a) = NULL;
+    int (i) = 1;
 
-	if (argc != 2 && argc != 3)
-		return (NULL);
-	else
+    while (i < argc && ft_strncmp(argv[i], "--", 2) == 0)
+        i++;
+    while (i < argc)
+    {
+        ft_lstadd_back_ps(&stack_a, ft_lstnew_ps(ft_atoi(argv[i])));
+        i++;
+    }
+    return (stack_a);
+}
+
+void	print_stack(t_ps_list **lst) // a supp
+{
+	t_ps_list *actual_node = *lst;
+	while (actual_node != NULL)
 	{
-		split_result = ft_split(argv, ' ');
-		i = 0;
-		len_list = 0;
-		while (split_result[len_list])
-			len_list++;
-		stack_a = ft_lstnew_ps(ft_atoi(split_result[i++]));
-		while (i < len_list)
-		{
-			ft_lstadd_back_ps(&stack_a, ft_lstnew_ps(ft_atoi(split_result[i])));
-			i++;
-		}
-		return (stack_a);
+		ft_printf("%d\n",actual_node->content);
+		actual_node = actual_node->next;
 	}
+	ft_printf("--------------------------\n");
 }

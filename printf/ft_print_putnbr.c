@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_putnbr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 19:13:26 by schoisi           #+#    #+#             */
-/*   Updated: 2026/07/01 08:01:35 by antoine          ###   ########.fr       */
+/*   Updated: 2026/05/10 04:29:10 by schoisi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_print_putnbr(int nb)
 	while (calc > 9)
 	{
 		calc = calc / 10;
-		(*count)++;
+		count++;
 	}
 	str = malloc(sizeof(char) * (count + 1));
 	if (sign != 0)

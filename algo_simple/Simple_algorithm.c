@@ -13,7 +13,7 @@
 #include "../push_swap.h"
 
 void	full_b_stack_algo_simple_ps(t_ps_list **stack_a,
-			t_ps_list **stack_b, int *count)
+			t_ps_list **stack_b, t_ps_context *ctx)
 {
 	t_ps_list *(stack_a_actual_node), *(biggest_nmb) = *stack_a;
 	int (counter) = 0;
@@ -33,21 +33,21 @@ void	full_b_stack_algo_simple_ps(t_ps_list **stack_a,
 			stack_a_actual_node = stack_a_actual_node->next;
 			iteration++;
 		}
-		while (count != 0)
+		while (counter != 0)
 		{
-			ra(stack_a, count);
+			ra(stack_a, ctx);
 			counter--;
 		}
-		pb(stack_b, stack_a, count);
+		pb(stack_b, stack_a, ctx);
 	}
 }
 
-void	algo_simple_ps(t_ps_list **stack_a, t_ps_list **stack_b, int *count)
+void	algo_simple_ps(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
 {
 	if (stack_a == NULL)
 		return ;
-	full_b_stack_algo_simple_ps(stack_a, stack_b, count);
+	full_b_stack_algo_simple_ps(stack_a, stack_b, ctx);
 	while (*stack_b != NULL)
-		pa(stack_a, stack_b, count);
+		pa(stack_a, stack_b, ctx);
 	return ;
 }

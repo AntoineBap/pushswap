@@ -1,4 +1,4 @@
-NAME = ps
+NAME = push_swap
 
 CC = cc
 
@@ -12,12 +12,12 @@ SRCS = push_swap.c \
 	 	reverse_rotate.c \
 		compute_disorder.c \
 		check_error.c \
+		bench_gestion.c \
 		algo_complexe/greedy_algo.c \
 		algo_complexe/greedy_insert.c \
 		algo_complexe/greedy_sort.c \
 		algo_complexe/linked_list_minmax.c \
 		algo_adaptive/algo_adaptive.c \
-		algo_medium/Medium_algorithm.c \
 		algo_simple/Simple_algorithm.c \
 
 OBJS = $(SRCS:.c=.o)

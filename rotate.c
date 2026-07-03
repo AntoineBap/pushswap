@@ -28,24 +28,27 @@ void	rotate(t_ps_list **stack)
 	first_node->next = NULL;
 }
 
-void	ra(t_ps_list **stack_a, int *count)
+void	ra(t_ps_list **stack_a, t_ps_context *ctx)
 {
 	rotate(stack_a);
-	(*count)++;
+	ctx->count++;
+	ctx->count_ra++;
 	printf("ra\n");
 }
 
-void	rb(t_ps_list **stack_b, int *count)
+void	rb(t_ps_list **stack_b, t_ps_context *ctx)
 {
 	rotate(stack_b);
-	(*count)++;
+	ctx->count++;
+	ctx->count_rb++;
 	printf("rb\n");
 }
 
-void	rr(t_ps_list **stack_a, t_ps_list **stack_b, int *count)
+void	rr(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	(*count)++;
+	ctx->count++;
+	ctx->count_rr++;
 	printf("rr\n");
 }

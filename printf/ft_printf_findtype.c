@@ -21,6 +21,8 @@ int	ft_printf_findtype(const char format, va_list *args)
 		score = ft_printf_strwrt(va_arg(*args, char *));
 	if (format == '%')
 		score = ft_printf_putchar('%');
+	if (format == 'f')
+		score = ft_print_float(va_arg(*args, double), 2);
 	if (format == 'd')
 		score = ft_print_putnbr(va_arg(*args, int));
 	if (format == 'i')

@@ -33,7 +33,7 @@ static int	find_min_index(t_ps_list *stack_a)
 	return (index);
 }
 
-static void	put_min_on_top(t_ps_list **stack_a, int *count)
+static void	put_min_on_top(t_ps_list **stack_a, t_ps_context *ctx)
 {
 	int	min_index;
 	int	size_a;
@@ -45,17 +45,17 @@ static void	put_min_on_top(t_ps_list **stack_a, int *count)
 	{
 		i = 0;
 		while (i++ < min_index)
-			ra(stack_a, count);
+			ra(stack_a, ctx);
 	}
 	else
 	{
 		i = size_a - min_index;
 		while (i-- > 0)
-			rra(stack_a, count);
+			rra(stack_a, ctx);
 	}
 }
 
-static void	sort_three(t_ps_list **stack_a, int *count)
+static void	sort_three(t_ps_list **stack_a, t_ps_context *ctx)
 {
 	int	a;
 	int	b;
@@ -65,44 +65,44 @@ static void	sort_three(t_ps_list **stack_a, int *count)
 	b = (*stack_a)->next->content;
 	c = (*stack_a)->next->next->content;
 	if (a > b && b < c && a < c)
-		sa(stack_a, count);
+		sa(stack_a, ctx);
 	else if (a > b && b > c)
 	{
-		sa(stack_a, count);
-		rra(stack_a, count);
+		sa(stack_a, ctx);
+		rra(stack_a, ctx);
 	}
 	else if (a > b && b < c && a > c)
-		ra(stack_a, count);
+		ra(stack_a, ctx);
 	else if (a < b && b > c && a < c)
 	{
-		sa(stack_a, count);
-		ra(stack_a, count);
+		sa(stack_a, ctx);
+		ra(stack_a, ctx);
 	}
 	else if (a < b && b > c && a > c)
-		rra(stack_a, count);
+		rra(stack_a, ctx);
 }
 
-void	greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b, int *count)
+void	greedy_sort(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
 {
 	int	best_b_index;
 	int	best_val;
 
 	while (ft_lstsize_ps(*stack_a) > 3)
-		pb(stack_b, stack_a, count);
+		pb(stack_b, stack_a, ctx);
 	if (ft_lstsize_ps(*stack_a) == 3)
-		sort_three(stack_a, count);
+		sort_three(stack_a, ctx);
 	else if (ft_lstsize_ps(*stack_a) == 2)
-		sa(stack_a, count);
+		sa(stack_a, ctx);
 	while (*stack_b)
 	{
 		best_b_index = 0;
 		best_val = 0;
 		find_cheapest(*stack_a, *stack_b, &best_b_index, &best_val);
-		bring_to_top_b(stack_b, best_b_index, count);
-		bring_to_target_a(stack_a, best_val, count);
-		pa(stack_a, stack_b, count);
+		bring_to_top_b(stack_b, best_b_index, ctx);
+		bring_to_target_a(stack_a, best_val, ctx);
+		pa(stack_a, stack_b, ctx);
 	}
 	if (!*stack_a)
 		return ;
-	put_min_on_top(stack_a, count);
+	put_min_on_top(stack_a, ctx);
 }

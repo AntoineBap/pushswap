@@ -25,17 +25,28 @@ void	swap(t_ps_list **stack)
 	*stack = maillon;
 }
 
-void	sa(t_ps_list **stack_a, int *count)
+void	sa(t_ps_list **stack_a, t_ps_context *ctx)
 {
 	swap(stack_a);
-	(*count)++;
+	ctx->count++;
+	ctx->count_sa++;
 	printf("sa\n");
 }
 
-void	sb(t_ps_list **stack_b, int *count)
+void	sb(t_ps_list **stack_b, t_ps_context *ctx)
 {
 	swap(stack_b);
-	(*count)++;
+	ctx->count++;
+	ctx->count_sb++;
 	printf("sb\n");
+}
+
+void	ss(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ctx->count++;
+	ctx->count_ss++;
+	printf("ss\n");
 }
 

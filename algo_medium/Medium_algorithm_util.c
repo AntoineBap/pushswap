@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hexa_low.c                                :+:      :+:    :+:   */
+/*   Medium_algorithm_util.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/09 20:26:44 by schoisi           #+#    #+#             */
-/*   Updated: 2026/05/10 05:08:19 by schoisi          ###   ########.fr       */
+/*   Created: 2026/07/02 08:22:15 by schoisi           #+#    #+#             */
+/*   Updated: 2026/07/02 08:26:00 by schoisi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../push_swap.h"
 
-int	ft_print_hexa_low(unsigned int nb)
+t_ps_list *find_end_node(int nmb_of_blocs,t_ps_list *actual_node)
 {
-	char			*digits;
-	char			buffer[9];
-	int				i;
-	int				count;
-
-	digits = "0123456789abcdef";
-	i = 8;
-	buffer[i] = '\0';
-	count = 0;
-	if (nb == 0)
+	t_ps_list *(end_node) = actual_node;
+	int (count_bloc) = 0;
+	while (count_bloc <= nmb_of_blocs)
 	{
-		write(1, "0", 1);
-		return (1);
+		if (end_node->next)
+			end_node = end_node->next;
+		else
+			break;
+		count_bloc++;
 	}
-	while (nb > 0)
-	{
-		buffer[--i] = digits[nb % 16];
-		nb = nb / 16;
-		count++;
-	}
-	write(1, &buffer[i], count);
-	return (count);
+	return (end_node);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaptist <abaptist@student.42.fr>          #+#  +:+       +#+        */
+/*   By: schoisi <schoisi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-06-17 09:34:48 by abaptist          #+#    #+#             */
-/*   Updated: 2026-06-17 09:34:48 by abaptist         ###   ########.fr       */
+/*   Created: 2026/06/17 09:34:48 by abaptist          #+#    #+#             */
+/*   Updated: 2026/07/02 09:37:06 by schoisi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	exit_prog(int status)
 		ft_printf("%s\n", "Invalid strategy selector");
 	else if (status == 5)
 		ft_printf("%s\n", "Invalid disorder index");
+	else if (status == 6)
+		ft_printf("%s\n", "error\n");
 	exit(status);
 	return ;
 }

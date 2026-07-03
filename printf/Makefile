@@ -8,6 +8,7 @@ ft_print_void.c \
 ft_printf_findtype.c \
 ft_printf_putchar.c \
 ft_printf_strwrt.c \
+ft_printf_float.c \
 ft_printf.c
 
 OBJ = $(ALL_FILE:.c=.o) 
