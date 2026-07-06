@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	int res;
 
 	if (argc < 3) {
-		fprintf(stderr, "Usage: %s <str1> <str2> [<len>]\n", argv[0]);
+		printf(stderr, "Usage: %s <str1> <str2> [<len>]\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 

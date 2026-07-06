@@ -43,26 +43,26 @@ void	ft_lstadd_back_ps(t_ps_list **lst, t_ps_list *new)
 
 t_ps_list *fill_stack_a(char **argv, int argc)
 {
-    t_ps_list *(stack_a) = NULL;
-    int (i) = 1;
+	t_ps_list *(stack_a) = NULL;
+	int (i) = 1;
 
-    while (i < argc && ft_strncmp(argv[i], "--", 2) == 0)
-        i++;
-    while (i < argc)
-    {
-        ft_lstadd_back_ps(&stack_a, ft_lstnew_ps(ft_atoi(argv[i])));
-        i++;
-    }
-    return (stack_a);
+	while (i < argc && ft_strncmp(argv[i], "--", 2) == 0)
+		i++;
+	while (i < argc)
+	{
+		ft_lstadd_back_ps(&stack_a, ft_lstnew_ps(ft_atoi(argv[i])));
+		i++;
+	}
+	return (stack_a);
 }
 
-void	print_stack(t_ps_list **lst) // a supp
+/* void	print_stack(t_ps_list **lst) // a supp
 {
 	t_ps_list *actual_node = *lst;
 	while (actual_node != NULL)
 	{
-		ft_printf("%d\n",actual_node->content);
+		ft_printf(1, "%d\n",actual_node->content);
 		actual_node = actual_node->next;
 	}
-	ft_printf("--------------------------\n");
-}
+	ft_printf(1, "--------------------------\n");
+} */

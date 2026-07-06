@@ -12,8 +12,8 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_putchar(char c)
+int	ft_printf_putchar(int fd, char c)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 	return (1);
 }

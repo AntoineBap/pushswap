@@ -30,7 +30,7 @@ void	sa(t_ps_list **stack_a, t_ps_context *ctx)
 	swap(stack_a);
 	ctx->count++;
 	ctx->count_sa++;
-	printf("sa\n");
+	ft_printf(1, "sa\n");
 }
 
 void	sb(t_ps_list **stack_b, t_ps_context *ctx)
@@ -38,7 +38,7 @@ void	sb(t_ps_list **stack_b, t_ps_context *ctx)
 	swap(stack_b);
 	ctx->count++;
 	ctx->count_sb++;
-	printf("sb\n");
+	ft_printf(1, "sb\n");
 }
 
 void	ss(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
@@ -47,6 +47,6 @@ void	ss(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
 	swap(stack_b);
 	ctx->count++;
 	ctx->count_ss++;
-	printf("ss\n");
+	ft_printf(1, "ss\n");
 }
 

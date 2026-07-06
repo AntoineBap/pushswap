@@ -9,7 +9,6 @@
 /*   Updated: 2026-07-03 09:14:02 by abaptist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
 
 static long	ft_pow10(int n)
@@ -22,18 +21,18 @@ static long	ft_pow10(int n)
 	return (result);
 }
 
-static int	ft_putnbr_long(long n)
+static int	ft_putnbr_long(int fd, long n)
 {
 	int	count;
 
 	count = 0;
 	if (n >= 10)
-		count = count + ft_putnbr_long(n / 10);
-	count = count + ft_printf_putchar('0' + n % 10);
+		count = count + ft_putnbr_long(fd, n / 10);
+	count = count + ft_printf_putchar(fd, '0' + n % 10);
 	return (count);
 }
 
-static int	ft_putnbr_pad(long n, int precision)
+static int	ft_putnbr_pad(int fd, long n, int precision)
 {
 	long	tmp;
 	int		digits;
@@ -48,12 +47,12 @@ static int	ft_putnbr_pad(long n, int precision)
 		digits++;
 	}
 	while (digits++ < precision)
-		count = count + ft_printf_putchar('0');
-	count = count + ft_putnbr_long(n);
+		count = count + ft_printf_putchar(fd, '0');
+	count = count + ft_putnbr_long(fd, n);
 	return (count);
 }
 
-int	ft_print_float(float nb, int precision)
+int	ft_print_float(int fd, float nb, int precision)
 {
 	long	scale;
 	long	value;
@@ -64,13 +63,13 @@ int	ft_print_float(float nb, int precision)
 		precision = 2;
 	if (nb < 0)
 	{
-		count = count + ft_printf_putchar('-');
+		count = count + ft_printf_putchar(fd, '-');
 		nb = -nb;
 	}
 	scale = ft_pow10(precision);
 	value = (long)(nb * (double)scale + 0.5);
-	count = count + ft_putnbr_long(value / scale);
-	count = count + ft_printf_putchar('.');
-	count = count + ft_putnbr_pad(value % scale, precision);
+	count = count + ft_putnbr_long(fd, value / scale);
+	count = count + ft_printf_putchar(fd, '.');
+	count = count + ft_putnbr_pad(fd, value % scale, precision);
 	return (count);
 }

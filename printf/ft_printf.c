@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(int fd, const char *format, ...)
 {
 	va_list (args);
 	va_start(args, format);
@@ -22,12 +22,12 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			somme = somme + ft_printf_findtype(format[i + 1], &args);
+			somme = somme + ft_printf_findtype(fd, format[i + 1], &args);
 			i++;
 		}
 		else
 		{
-			ft_printf_putchar(format[i]);
+			ft_printf_putchar(fd, format[i]);
 			somme++;
 		}
 		i++;

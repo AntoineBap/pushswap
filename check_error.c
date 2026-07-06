@@ -14,22 +14,21 @@
 
 void	exit_prog(int status)
 {
-	ft_printf("Error : ");
 	if (status == 0)
-		ft_printf("%s\n", "First character isn't an integer");
+		ft_printf(2, "%s\n", "Error");
 	else if (status == 1)
-		ft_printf("%s\n", "Two spaces or more in a row");
+		ft_printf(2, "%s\n", "Error");
 	else if (status == 2)
-		ft_printf("%s\n", "Invalid character in the string");
+		ft_printf(2, "%s\n", "Error");
 	else if (status == 3)
-		ft_printf("%s\n", "Not enough or too much arguments");
+		ft_printf(2, "%s\n", "Error");
 	else if (status == 4)
-		ft_printf("%s\n", "Invalid strategy selector");
+		ft_printf(2, "%s\n", "Error");
 	else if (status == 5)
-		ft_printf("%s\n", "Invalid disorder index");
+		ft_printf(2, "%s\n", "Error");
 	else if (status == 6)
-		ft_printf("%s\n", "error\n");
-	exit(status);
+		ft_printf(2, "%s\n", "Error");
+	exit(1);
 	return ;
 }
 

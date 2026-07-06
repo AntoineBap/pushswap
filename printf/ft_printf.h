@@ -17,15 +17,15 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-int		ft_printf(const char *format, ...);
-int		ft_printf_strwrt(char *str);
-int		ft_printf_putchar(char c);
-int		ft_printf_findtype(const char format, va_list *args);
-int		ft_print_putnbr(int nb);
-int		ft_printf_putchar_unsigned(unsigned int nb);
-int		ft_print_hexa_up(unsigned int nb);
-int		ft_print_hexa_low(unsigned int nb);
-int		ft_print_void(void *args);
-int		ft_print_float(float nb, int precision);
+int		ft_printf(int fd, const char *format, ...);
+int		ft_printf_strwrt(int fd, char *str);
+int		ft_printf_putchar(int fd, char c);
+int		ft_printf_findtype(int fd, const char format, va_list *args);
+int		ft_print_putnbr(int fd, int nb);
+int		ft_printf_putchar_unsigned(int fd, unsigned int nb);
+int		ft_print_hexa_up(int fd, unsigned int nb);
+int		ft_print_hexa_low(int fd, unsigned int nb);
+int		ft_print_void(int fd, void *args);
+int		ft_print_float(int fd, float nb, int precision);
 
 #endif

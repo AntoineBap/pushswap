@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_print_hexa_up(unsigned int nb)
+int	ft_print_hexa_up(int fd, unsigned int nb)
 {
 	char			*digits;
 	char			buffer[9];
@@ -25,7 +25,7 @@ int	ft_print_hexa_up(unsigned int nb)
 	count = 0;
 	if (nb == 0)
 	{
-		write(1, "0", 1);
+		write(fd, "0", 1);
 		return (1);
 	}
 	while (nb > 0)
@@ -34,6 +34,6 @@ int	ft_print_hexa_up(unsigned int nb)
 		nb = nb / 16;
 		count++;
 	}
-	write(1, &buffer[i], count);
+	write(fd, &buffer[i], count);
 	return (count);
 }

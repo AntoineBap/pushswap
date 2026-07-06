@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	else
 		adaptive_algo(&stack_a, &stack_b, &ctx);
 	if (has_bench_flag(argv, argc))
-		bench_gestion(disorder, argv, &ctx);
+		bench_gestion(disorder, algo, &ctx);
 	return (0);
 }
 

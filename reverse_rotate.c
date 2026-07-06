@@ -33,7 +33,7 @@ void	rra(t_ps_list **stack_a, t_ps_context *ctx)
 	reverse_rotate(stack_a);
 	ctx->count++;
 	ctx->count_rra++;
-	printf("rra\n");
+	ft_printf(1, "rra\n");
 }
 
 void	rrb(t_ps_list **stack_b, t_ps_context *ctx)
@@ -41,7 +41,7 @@ void	rrb(t_ps_list **stack_b, t_ps_context *ctx)
 	reverse_rotate(stack_b);
 	ctx->count++;
 	ctx->count_rrb++;
-	printf("rrb\n");
+	ft_printf(1, "rrb\n");
 }
 
 void	rrr(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
@@ -50,5 +50,5 @@ void	rrr(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
 	reverse_rotate(stack_b);
 	ctx->count++;
 	ctx->count_rrr++;
-	printf("rrr\n");
+	ft_printf(1, "rrr\n");
 }

@@ -26,7 +26,7 @@ void	pa(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx)
 	*stack_a = node;
 	ctx->count++;
 	ctx->count_pa++;
-	printf("pa\n");
+	ft_printf(1, "pa\n");
 }
 
 void	pb(t_ps_list **stack_b, t_ps_list **stack_a, t_ps_context *ctx)
@@ -43,5 +43,5 @@ void	pb(t_ps_list **stack_b, t_ps_list **stack_a, t_ps_context *ctx)
 	*stack_b = node;
 	ctx->count++;
 	ctx->count_pb++;
-	printf("pb\n");
+	ft_printf(1, "pb\n");
 }

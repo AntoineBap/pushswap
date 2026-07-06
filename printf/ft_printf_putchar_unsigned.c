@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_putchar_unsigned(unsigned int nb)
+int	ft_printf_putchar_unsigned(int fd, unsigned int nb)
 {
 	unsigned long	n;
 	int				div;
@@ -25,7 +25,7 @@ int	ft_printf_putchar_unsigned(unsigned int nb)
 	if (n == 0)
 	{
 		c = ((n / div) % 10) + '0';
-		write(1, &c, 1);
+		write(fd, &c, 1);
 		return (++score);
 	}
 	while ((n / div) >= 10)
@@ -33,7 +33,7 @@ int	ft_printf_putchar_unsigned(unsigned int nb)
 	while (div > 0)
 	{
 		c = ((n / div) % 10) + '0';
-		write(1, &c, 1);
+		write(fd, &c, 1);
 		div /= 10;
 		score++;
 	}

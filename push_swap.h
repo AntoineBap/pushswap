@@ -81,7 +81,7 @@ void		algo_simple_ps(t_ps_list **stack_a,
 //int			algo_medium_ps(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_context *ctx);
 //t_ps_list	*find_end_node(int nmb_of_blocs,t_ps_list *actual_node);
 //void		print_stack(t_ps_list **lst);
-int			bench_gestion(float disorder,char **argv, t_ps_context *ctx);//probleme sur le counter : on a pas un counter pour chaque operation distinct
+int			bench_gestion(float disorder,char *algo, t_ps_context *ctx);//probleme sur le counter : on a pas un counter pour chaque operation distinct
 char		*find_algo_flag(char **argv, int argc);
 int			has_bench_flag(char **argv, int argc);
 

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_print_putnbr(int nb)
+int	ft_print_putnbr(int fd, int nb)
 {
 	long	n;
 	int		div;
@@ -24,7 +24,7 @@ int	ft_print_putnbr(int nb)
 	score = 0;
 	if (n < 0)
 	{
-		write(1, "-", 1);
+		write(fd, "-", 1);
 		n *= -1;
 		score++;
 	}
@@ -33,7 +33,7 @@ int	ft_print_putnbr(int nb)
 	while (div > 0)
 	{
 		c = ((n / div) % 10) + '0';
-		write(1, &c, 1);
+		write(fd, &c, 1);
 		div /= 10;
 		score++;
 	}
